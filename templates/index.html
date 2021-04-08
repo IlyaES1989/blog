@@ -4,10 +4,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Лента</title>
 </head>
 <body>
-<h1> Личный блог | {{ user}}</h1>
+<h1> Лента новостей </h1>
+
+<a href="{% url 'create'%}"><strong> Создать пост </strong></a><br>
+<a href="{% url 'subscribe'%}"><strong> Управление подписками </strong></a>
 
 {% for note in notes %}
 <form  enctype="multipart/form-data" role="form" method="post"

@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import Blog
+from .views import (
+    BlogView,
+    CreateNote,
+    SubscribeFor,
+)
 
 urlpatterns = [
-    path('', Blog.as_view(), name='index'),
+    path('', BlogView.as_view(), name='index'),
+    path('create/', CreateNote.as_view(), name='create'),
+    path('subscribe/', SubscribeFor.as_view(), name='subscribe'),
 ]

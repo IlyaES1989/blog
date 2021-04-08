@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать пост</title>
+</head>
+<body>
+<h1> Создать пост</h1>
+<a href="{% url 'index'%}"><strong> Назад </strong></a><br>
+<a href="{% url 'subscribe'%}"><strong> Управление подписками </strong></a>
+<br><br>
+
+
+<form  enctype="multipart/form-data" role="form" method="post"
+       action="{% url 'create' %}">
+    {% csrf_token%}
+    <div>
+        <label for="title"> <strong>Заголовок:</strong></label><br>
+        {{form.title}}
+    </div>
+    <div>
+        <label for="title"> <strong>Текст поста:</strong></label><br>
+        {{form.body}}
+    </div>
+    <button type="submit"> Опубликовать пост</button>
+</form>
+
+</body>
+</html>

@@ -17,7 +17,7 @@ class Blog(models.Model):
 class Note(models.Model):
     author = models.ForeignKey(Blog, on_delete=models.CASCADE)
     title = models.CharField(max_length=256, default='')
-    body = models.CharField(max_length=2000, default='')
+    body = models.TextField(max_length=2000, default='')
     time = models.DateTimeField(blank=True)
     notification_message = models.BooleanField(default=False)
 

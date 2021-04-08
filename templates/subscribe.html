@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подписаться на блог</title>
+</head>
+<body>
+<h1> Управление подписками</h1>
+<a href="{% url 'index'%}"><strong> Назад </strong></a> <br>
+<a href="{% url 'create'%}"><strong> Создать пост </strong></a><br>
+
+<h2> Ваши подписки </h2>
+{% if subscriptions%}
+{% for sub in subscriptions%}
+<form  enctype="multipart/form-data" role="form" method="post"
+       action="{% url 'subscribe' %}">
+    {% csrf_token %}
+    <input name="blog_id" style="display:none" value="{{sub.blog.id}}">
+    <li><strong>{{ sub.blog}}</strong></li>
+    <li>Автор:<strong>{{ sub.blog.author}}</strong></li>
+    <button type="submit"> Отписаться</button><br>
+    ------------
+</form>
+{% endfor%}
+{% else%}
+<h3> Вы не подписаны ни на один блог! Подпишитесь!</h3>
+{% endif%}
+
+
+{% if other_blogs%}
+<h2> Эти блоги могут быть Вам интересны! </h2>
+{% for blog in other_blogs%}
+<form  enctype="multipart/form-data" role="form" method="post"
+       action="{% url 'subscribe' %}">
+    {% csrf_token %}
+    <input name="blog_id" style="display:none" value="{{blog.id}}">
+    <li><strong>{{blog}}</strong></li>
+    <li>Автор:<strong>{{blog.author}}</strong></li>
+    <button type="submit"> Подписаться</button><br>
+    ------------
+</form>
+{% endfor%}
+{% else %}
+<h2> Вы подписаны на все блоги!</h2>
+{% endif%}
+
+</body>
+</html>

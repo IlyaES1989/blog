@@ -18,10 +18,10 @@ from django.urls import (
     path,
     include,
 )
-from nekidaem.views import Blog
+from nekidaem.views import BlogView
 
 urlpatterns = [
-    path('', Blog.as_view(), name='index'),
+    path('', BlogView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('nekidaem/', include('nekidaem.urls'))
 ]
