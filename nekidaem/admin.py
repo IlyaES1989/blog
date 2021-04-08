@@ -7,7 +7,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ('author', 'theme')
 
 
-class PostAdmin(admin.ModelAdmin):
+class NoteAdmin(admin.ModelAdmin):
     list_display = ('author', 'title', 'body', 'time', 'notification_message')
 
 
@@ -15,12 +15,12 @@ class SubscriptionAdmin(admin.ModelAdmin):
     list_display = ('blog', 'subscriber')
 
 
-class PostStatusAdmin(admin.ModelAdmin):
-    list_display = ('post', 'subscriber', 'status')
+class NoteStatusAdmin(admin.ModelAdmin):
+    list_display = ('note', 'subscriber', 'status')
 
 
 admin.site.register(models.Blog, BlogAdmin)
-admin.site.register(models.Post, PostAdmin)
+admin.site.register(models.Note, NoteAdmin)
 admin.site.register(models.Subscription, SubscriptionAdmin)
-admin.site.register(models.PostStatus, PostStatusAdmin)
+admin.site.register(models.NoteStatus, NoteStatusAdmin)
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Личный блог | {{ user}}</h1>
+
+{% for note in notes %}
+<form  enctype="multipart/form-data" role="form" method="post"
+       action="{% url 'index' %}">
+    {% csrf_token %}
+    <input name="note" style="display:none" value="{{note.0.id}}">
+    <h2> {{note.0.title}} </h2>
+    <p> {{note.0.body}} </p>
+    <p> Опубликовано: <strong>{{ note.0.time}}</strong>, автор:<strong>{{ note.0.author.author }}</strong> </p>
+    {% if note.1.status%}
+    <p> Статус: <strong>ПРОЧИТАНО</strong></p>
+    <button type="submit"> Пометить непрочитанным</button>
+    {% else %}
+
+
+    <button type="submit"> Пометить прочитанным</button>
+    {% endif%}
+</form>
+_____________________
+{% endfor%}
+{% for stat in status%}
+{{stat.0}}
+{% endfor%}
+
+</body>
+</html>
