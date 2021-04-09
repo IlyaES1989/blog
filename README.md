@@ -3,7 +3,8 @@
 Процедура запуска проекта:
 
 1. $ git clone https://github.com/IlyaES1989/blog.git
-2. $ cat > .env.dev\
+2. $ cd blog/
+3. $ cat > .env.dev\
 SECRET_KEY='значение SECRET_KEY'\
 EMAIL_HOST=smtp.example.com\
 EMAIL_PORT=587\
