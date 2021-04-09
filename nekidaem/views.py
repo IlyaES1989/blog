@@ -129,7 +129,7 @@ class SubscribeFor(View):
         blog = Blog.objects.get(id=blog_id)
 
         try:
-            subscription = Subscription.objects.get(note_id=blog_id,
+            subscription = Subscription.objects.get(blog_id=blog_id,
                                                     subscriber_id=user_id)
             subscription.delete()
         except Subscription.DoesNotExist:
@@ -192,6 +192,7 @@ class ShowNote(View):
         context_dict = {
             'note': note,
             'note_status': note_status,
+            'blog_name_slug': blog_name_slug,
         }
-        return render(request, self.template_name, context_dict)
+        return redirect('show_note', blog_name_slug=blog_name_slug, note_id=note_id)
 

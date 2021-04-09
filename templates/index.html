@@ -12,6 +12,7 @@
 <a href="{% url 'create'%}"><strong> Создать пост </strong></a><br>
 <a href="{% url 'subscribe'%}"><strong> Управление подписками </strong></a>
 
+{% if notes%}
 {% for note in notes %}
 <form  enctype="multipart/form-data" role="form" method="post">
     {% csrf_token %}
@@ -32,6 +33,11 @@
 {% for stat in status%}
 {{stat.0}}
 {% endfor%}
+
+{% else %}
+<h3>К сожалению, Ваша лента пока пуста. Подпишитесь на интересующие Вас блоги!</h3>
+
+{% endif%}
 
 </body>
 </html>
