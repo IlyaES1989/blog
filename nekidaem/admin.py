@@ -8,7 +8,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display = ('author', 'title', 'body', 'time', 'notification_message')
+    list_display = ('blog', 'title', 'body', 'time', 'make_public')
 
 
 class SubscriptionAdmin(admin.ModelAdmin):

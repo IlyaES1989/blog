@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блог</title>
+</head>
+<body>
+{% if blog %}
+<h1>{{blog.theme}}</h1>
+<a href="{% url 'subscribe'%}"><strong> Назад </strong></a> <br>
+{% if notes%}
+<ul>
+    {% for note in notes%}
+    <li><a href="{{note.id}}"> {{note.title}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<strong> В этом блоге еще нет ни одного поста! </strong>
+{% endif %}
+{% endif %}
+
+</body>
+</html>

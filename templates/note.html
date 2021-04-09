@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{note.title}}</title>
+</head>
+<body>
+<h1>{{ note.title}}</h1>
+<a href="{% url 'show_blog' blog_name_slug %}"><strong> Назад </strong></a> <br>
+
+<form  enctype="multipart/form-data" role="form" method="post">
+    {% csrf_token %}
+    <input name="note" style="display:none" value="{{note.id}}">
+    <h2> {{note.title}} </h2>
+    <p> {{note.body}} </p>
+    <p> Опубликовано: <strong>{{ note.time}}</strong>, автор:<strong>{{ note.author.author }}</strong> </p>
+    {% if note_status.status%}
+    <p> Статус: <strong>ПРОЧИТАНО</strong></p>
+    <button type="submit"> Пометить непрочитанным</button>
+    {% else %}
+    <button type="submit"> Пометить прочитанным</button>
+    {% endif%}
+</form>
+
+</body>
+</html>

@@ -129,3 +129,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = 'static/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = get_key('mail_host.key')
+EMAIL_PORT = 587
+EMAIL_HOST_USER = get_key('mail_host_user.key')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = get_key('mail_pass.key')

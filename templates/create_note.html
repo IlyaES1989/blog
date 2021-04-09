@@ -10,9 +10,7 @@
 <a href="{% url 'subscribe'%}"><strong> Управление подписками </strong></a>
 <br><br>
 
-
-<form  enctype="multipart/form-data" role="form" method="post"
-       action="{% url 'create' %}">
+<form  enctype="multipart/form-data" role="form" method="post">
     {% csrf_token%}
     <div>
         <label for="title"> <strong>Заголовок:</strong></label><br>

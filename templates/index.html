@@ -13,8 +13,7 @@
 <a href="{% url 'subscribe'%}"><strong> Управление подписками </strong></a>
 
 {% for note in notes %}
-<form  enctype="multipart/form-data" role="form" method="post"
-       action="{% url 'index' %}">
+<form  enctype="multipart/form-data" role="form" method="post">
     {% csrf_token %}
     <input name="note" style="display:none" value="{{note.0.id}}">
     <h2> {{note.0.title}} </h2>
@@ -25,11 +24,10 @@
     <button type="submit"> Пометить непрочитанным</button>
     {% else %}
 
-
     <button type="submit"> Пометить прочитанным</button>
     {% endif%}
 </form>
-_____________________
+<hr align="left" width="500" size="2" color="black" />
 {% endfor%}
 {% for stat in status%}
 {{stat.0}}
