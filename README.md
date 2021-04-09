@@ -3,13 +3,13 @@
 Процедура запуска проекта:
 
 1. $ git clone https://github.com/IlyaES1989/blog.git
-2. $ cat > .env.dev
-SECRET_KEY='значение SECRET_KEY'
-EMAIL_HOST=smtp.example.com
-EMAIL_PORT=587
-EMAIL_HOST_USER=admin@example.com
-EMAIL_HOST_PASSWORD=password_from_email
-DEFAULT_FROM_EMAIL=admin@example.com
+2. $ cat > .env.dev\
+SECRET_KEY='значение SECRET_KEY'\
+EMAIL_HOST=smtp.example.com\
+EMAIL_PORT=587\
+EMAIL_HOST_USER=admin@example.com\
+EMAIL_HOST_PASSWORD=password_from_email\
+DEFAULT_FROM_EMAIL=admin@example.com\
 DEBUG=True
 
 3. $ docker build .
